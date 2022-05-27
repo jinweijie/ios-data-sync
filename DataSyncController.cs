@@ -35,9 +35,14 @@ public class DataSyncController : ControllerBase
                 reminderItem.Subject = tokens[0];
 
             if (tokens.Length > 1 && !string.IsNullOrWhiteSpace(tokens[1]))
-            {
                 if(DateTimeOffset.TryParse(tokens[1], out var due)) reminderItem.DueDate = due;
-            }
+
+            if (tokens.Length > 2 && !string.IsNullOrWhiteSpace(tokens[2]))
+                reminderItem.Priority = tokens[2];
+
+            if (tokens.Length > 3 && !string.IsNullOrWhiteSpace(tokens[3]))
+                reminderItem.Flag = tokens[3];
+            
             reminder.Items.Add(reminderItem);
         }
 

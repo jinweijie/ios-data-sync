@@ -16,5 +16,7 @@ public class ReminderItemModel
     public bool Completed { get; set; }
     public string Subject { get; set; }
     public DateTimeOffset DueDate { get; set; }
+    public string Priority { get; set; }
+    public string Flag { get; set; }
 }
 
