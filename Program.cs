@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Setting
 builder.Configuration.AddJsonFile("appsettings.json", false, true);
+builder.Configuration.AddEnvironmentVariables();
 var setting = builder.Configuration.GetSection("Settings").Get<Settings>();
 builder.Services.AddSingleton(setting);
 
