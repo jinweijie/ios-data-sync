@@ -1,0 +1,23 @@
+services:
+  ios_data_sync:
+    hostname: ios-data-sync
+    image: jinweijiedocker/ios-data-sync
+    container_name: ios_data_sync_container
+    restart: always
+    volumes:
+      - ios_data_sync_data:/data
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - ios_data_sync_net
+    ports:
+      - "30012:80"
+
+volumes:
+  ios_data_sync_data:
+    name: ios_data_sync_data
+
+networks:
+  ios_data_sync_net:
+    name: ios_data_sync_net
+    driver: bridge
